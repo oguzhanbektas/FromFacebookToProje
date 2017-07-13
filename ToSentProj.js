@@ -24,7 +24,7 @@ class ToSentMessage {
                 }
             };
             //  console.log("ToSentProje args --> "+JSON.stringify(args.data));
-            var req = client.post("http://localhost:3001/ToFacebook", args, function (data, response) {
+            var req = client.post("http://localhost:3001/", args, function (data, response) {
                 //    console.log("ToSentProje data --> "+JSON.stringify(data));
                 if (data == "Successful") console.log("Veri gönderildi");
             });

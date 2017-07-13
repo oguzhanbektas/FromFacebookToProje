@@ -45,20 +45,19 @@ class To3001From3000 {
         }
     }
 }
-const x = new To3001From3000();
+const send = new To3001From3000();
 
 server2.use(Restify.jsonp());
 server2.use(Restify.bodyParser());
 
 server2.post('/', (req, res, next) => {
-    //  console.log("Facebook id: " + req.body.sender + " Mesaj : " + req.body.message.text + " TimeOfMessage :" + req.body.timeOfMessage);
-    //res.send("Successful");
-    console.log("11111111111111111111111111");
+    console.log("Facebook id: " + req.body.sender + " Mesaj : " + req.body.message.text + " TimeOfMessage :" + req.body.timeOfMessage);
+    res.send("Successful");
     return next();
 });
 
 server2.post('/ToFacebook', (req, res, next) => {
-     var msgObj = {
+    var msgObj = {
         "sender": req.body.sender,
         "timeOfMessage": req.body.timeOfMessage,
         "message": req.body.message,
@@ -66,9 +65,9 @@ server2.post('/ToFacebook', (req, res, next) => {
     };
     // console.log("ToFacebook req.body-->"+JSON.stringify(msgObj));
     // var deneme="id:"+req.body.sender+"Message:"+req.body.message.text;
-    x.To3000(msgObj);
+    send.To3000(msgObj);
     return next();
 });
 
 
-server2.listen(PORT, () => console.log(`deneme running on port ${PORT}`));
+server2.listen(PORT, () => console.log(`server2 running on port ${PORT}`));

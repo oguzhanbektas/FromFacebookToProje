@@ -25,14 +25,14 @@ server.get('/', (req, res, next) => {
 });
 
 const ForSentMessage = require('./ToSentProj');
-const sent = new ForSentMessage();
+const send = new ForSentMessage();
 
 // Receive all incoming messages
 server.post('/', (req, res, next) => {
     f.incoming(req, res, msg => {
         // Process messages
        // f.txt(msg.sender, `Hey, you just said ${msg.message.text}`);
-        sent.ToServer(msg);
+        send.ToServer(msg);
     });
     return next();
 });
