@@ -1,7 +1,7 @@
 class ToSentMessage {
     ToServer(request) {
         if (request) {
-            console.log("Request Text->" + request.message.text);
+            //   console.log("Request Text->" + request.message.text);
             var Client = require('node-rest-client').Client;
             var client = new Client();
             var tip = {
@@ -23,7 +23,9 @@ class ToSentMessage {
                     timeout: 1000 //response timeout
                 }
             };
-            var req = client.post("http://localhost:3001/", args, function (data, response) {
+            //  console.log("ToSentProje args --> "+JSON.stringify(args.data));
+            var req = client.post("http://localhost:3001/ToFacebook", args, function (data, response) {
+                //    console.log("ToSentProje data --> "+JSON.stringify(data));
                 if (data == "Successful") console.log("Veri gönderildi");
             });
             req.on('requestTimeout', function (req) {
